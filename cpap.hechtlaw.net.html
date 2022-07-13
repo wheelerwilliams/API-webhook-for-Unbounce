@@ -1,5 +1,4 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script type="application/javascript" src="http://ipinfo.io/?format=jsonp&callback=getIP"></script>
 
 <script>
   
@@ -12,7 +11,7 @@
   xhr.addEventListener("readystatechange", function() {
   if(this.readyState === 4) {
       access_token = JSON.parse(xhr.responseText).access_token + " " + JSON.parse(xhr.responseText).access_token
-      console.log(access_token);
+      console.log("access_token", access_token);
   }
   });
 
@@ -51,6 +50,8 @@
       "Partner_Id":"test"
     }
   });
+
+  console.log("data", data);
 
   var xhr = new XMLHttpRequest();
   xhr.withCredentials = true;
