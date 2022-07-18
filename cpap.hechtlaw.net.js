@@ -13,14 +13,15 @@
     var last_name = document.getElementById("last_name").value;
     var email = document.getElementById("email").value;
     var phone_number = document.getElementById("phone_number").value;
-    var date= new Date().toLocaleString('en-US', { timeZone: 'EST' });
+    var date= new Date();
+    var date_time = date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate()+' '+new Date().toLocaleTimeString([], {hour12: false,});
 
     var data = JSON.stringify({
       "campaign_id":"1119",
       "full_name": first_name+' '+last_name,
       "phone":phone_number,
       "email":email,
-      "date":date,
+      "date":date_time,
       "questions":{
         "consent":"yes",
         "Business Name":cpap_machine_used,

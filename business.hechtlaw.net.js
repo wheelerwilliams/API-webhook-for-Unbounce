@@ -1,5 +1,4 @@
-   
-  var user_ip;
+var user_ip;
   var user_region;
 
   $.get("https://ipinfo.io", function(response) {
@@ -15,10 +14,8 @@
     var last_name = document.getElementById("last_name").value;
     var email = document.getElementById("email").value;
     var phone_number = document.getElementById("phone_number").value;
-    var date= new Date().toLocaleString('en-US', { timeZone: 'EST' });
-    var user_ip, user_region;
-    
-    // Get access token
+    var date= new Date();
+    var date_time = date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate()+' '+new Date().toLocaleTimeString([], {hour12: false,});
 
     // Post data
     var data = JSON.stringify({
@@ -26,7 +23,7 @@
       "full_name": first_name+' '+last_name,
       "phone":phone_number,
       "email":email,
-      "date":date,
+      "date":date_time,
       "questions":{
         "consent":"yes",
         "Business Name":business_name,
@@ -52,4 +49,3 @@
 
     xhr.send(data); 
   });
-    

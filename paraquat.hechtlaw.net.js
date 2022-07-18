@@ -12,7 +12,8 @@
     var name = document.getElementById("name").value;
     var email = document.getElementById("email").value;
     var phone_number = document.getElementById("phone_number").value;
-    var date= new Date().toLocaleString('en-US', { timeZone: 'EST' });
+    var date= new Date();
+    var date_time = date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate()+' '+new Date().toLocaleTimeString([], {hour12: false,});
     var age = document.getElementById("age").value;
     
     // Get access token
@@ -23,7 +24,7 @@
       "full_name": name,
       "phone":phone_number,
       "email":email,
-      "date":date,
+      "date":date_time,
       "questions":{
         "consent":"yes",
         "State":user_region,
